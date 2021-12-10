@@ -9,4 +9,4 @@ const DocentSchema = new mongoose.Schema({
     collection: 'docent'
 });
 
-modules.exports = mongoose.model('Docent',DocentSchema);
+module.exports = mongoose.model('Docent',DocentSchema);

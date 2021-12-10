@@ -58,6 +58,15 @@ router.get('/', (req, res) => {
     +'<hr/>'
   );
 });
+router.get('/docent', async (req, res) => {
+  console.log('/docent route called');
+  try {
+    res.json(await Docent.find().populate('campussen').sort('voornaam'));
+  } catch(e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+});
 
 /**
  * Return all campuses
@@ -137,15 +146,7 @@ router.get('/campus', async (req, res) => {
   }
 });
 
-router.get('/docent', async (req, res) => {
-  console.log('/docent route called');
-  try {
-    res.json(await Docent.find().populate('campussen').sort('voornaam'));
-  } catch(e) {
-    console.log(e);
-    res.sendStatus(500);
-  }
-});
+
 
 
 module.exports = router;
